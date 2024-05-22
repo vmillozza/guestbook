@@ -46,7 +46,6 @@ class Comment
     public function setAuthor(string $author): self
     {
         $this->author = $author;
-
         return $this;
     }
 
@@ -58,7 +57,6 @@ class Comment
     public function setText(string $text): self
     {
         $this->text = $text;
-
         return $this;
     }
 
@@ -70,7 +68,6 @@ class Comment
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -82,7 +79,6 @@ class Comment
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 
@@ -94,7 +90,6 @@ class Comment
     public function setConference(?Conference $conference): self
     {
         $this->conference = $conference;
-
         return $this;
     }
 
@@ -103,10 +98,14 @@ class Comment
         return $this->photoFilename;
     }
 
-    public function setPhotoFilename(?string $photoFilename): static
+    public function setPhotoFilename(?string $photoFilename): self
     {
         $this->photoFilename = $photoFilename;
-
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->getEmail();
     }
 }
